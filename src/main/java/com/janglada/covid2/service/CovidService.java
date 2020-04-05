@@ -39,6 +39,7 @@ public class CovidService {
 
     public static final ToIntFunction<CovidData> CASE_VALUE = CovidData::getCasos;
     public static final ToIntFunction<CovidData> DEATH_VALUE = CovidData::getFallecidos;
+    public static final ToIntFunction<CovidData> UCI_VALUE = CovidData::getUCI;
 
 
     public CovidService(final ConsumerSanidadService consumerSanidadService, final CovidDataRepository covidDataRepository,

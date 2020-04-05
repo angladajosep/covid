@@ -10,5 +10,5 @@ import java.io.Serializable;
 public class ComboApi implements Serializable {
 
     private String text;
-    private String value;
+    private String id;
 }

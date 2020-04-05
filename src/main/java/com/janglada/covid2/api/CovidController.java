@@ -81,5 +81,14 @@ public class CovidController {
         return ResponseEntity.ok(dataApi);
     }
 
+    @GetMapping("/data/uci")
+    public ResponseEntity<DataApi> getCovidUciValuesApi(@RequestParam(name = "states") List<String> statesId) {
+        log.info("getCovidValues");
+        log.info(statesId.toString());
+
+        DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE, statesId);
+
+        return ResponseEntity.ok(dataApi);
+    }
 
 }
