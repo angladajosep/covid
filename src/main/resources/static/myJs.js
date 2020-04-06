@@ -181,7 +181,7 @@ $(function () {
                     }
                 });
                 $.ajax({
-                    url: "http://localhost:8080/api/covid/data/hostpital",
+                    url: "http://localhost:8080/api/covid/data/hospital",
                     type: "get",
                     data: {states: $('#states').val()},
                     traditional: true,
