@@ -16,8 +16,6 @@ $(function () {
         });
         var test = document.getElementById('renderBtn');
         test.onclick = function () {
-            console.log('Hello');
-            console.log($('#states').select2('data'));
 
             if (chartjs_cases != undefined) {
                 chartjs_cases.destroy();
@@ -45,15 +43,10 @@ $(function () {
                                     beginAtZero: true
                                 }
                             }]
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
                         }
                     }
                 });
             }
-
             function renderDeathChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_deaths").getContext('2d');
                 chartjs_deaths = new Chart(ctx, {
@@ -69,15 +62,10 @@ $(function () {
                                     beginAtZero: true
                                 }
                             }]
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
                         }
                     }
                 });
             }
-
             function renderUciChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_uci").getContext('2d');
                 chartjs_uci = new Chart(ctx, {
@@ -87,21 +75,12 @@ $(function () {
                         datasets: datasets
                     },
                     options: {
-                        /*title: {
-                            display: true,
-                            position: top,
-                            text: 'Absolut Death Numbers'
-                        },*/
                         scales: {
                             yAxes: [{
                                 ticks: {
                                     beginAtZero: true
                                 }
                             }]
-                        },
-                        legend: {
-                            display: true,
-                            position: 'right'
                         }
                     }
                 });
