@@ -31,11 +31,11 @@ public class CovidData {
     @JoinColumn(name = "state_id")
     StateEntity stateEntity;
 
-    private int casos;
-    private int fallecidos;
-    private int uCI;
-    private int hospitalizados;
-    private int recuperados;
+    private int caseCumulative;
+    private int deathCumulative;
+    private int uciCumulative;
+    private int hospitalCumulative;
+    private int recoveredCumulative;
 
 
 /*    @Override
