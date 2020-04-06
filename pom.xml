@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <gitflow-maven-plugin.version>1.11.0</gitflow-maven-plugin.version>
+
     </properties>
 
     <dependencies>
@@ -84,7 +86,33 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <!-- Gitflow from maven -->
+            <plugin>
+                <groupId>com.amashchenko.maven.plugin</groupId>
+                <artifactId>gitflow-maven-plugin</artifactId>
+                <version>${gitflow-maven-plugin.version}</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <versionDigitToIncrement>1</versionDigitToIncrement>
+                    <commitMessages>
+                        <featureStartMessage>update versions for feature branch</featureStartMessage>
+                        <featureFinishMessage>update versions for development branch</featureFinishMessage>
+
+                        <hotfixStartMessage>Version @{version} (HOTFIX)</hotfixStartMessage>
+                        <hotfixFinishMessage>Version @{version}</hotfixFinishMessage>
+
+                        <releaseStartMessage>Version @{version} (RELEASE)</releaseStartMessage>
+                        <releaseFinishMessage>Version @{version}</releaseFinishMessage>
+
+                        <tagReleaseMessage>tag release</tagReleaseMessage>
+                        <tagHotfixMessage>tag hotfix</tagHotfixMessage>
+                    </commitMessages>
+                </configuration>
+            </plugin>
         </plugins>
+
+
     </build>
 
 </project>
