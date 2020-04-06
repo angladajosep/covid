@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.janglada</groupId>
     <artifactId>covid2</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0-SNAPSHOT</version>
     <name>covid2</name>
     <description>Demo covid 2</description>
 
