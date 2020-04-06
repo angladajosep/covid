@@ -11,11 +11,11 @@ import java.util.List;
 @AllArgsConstructor
 public class DataSet implements Serializable {
 
-    private List<Integer> data;
+    private List<Double> data;
     private String label;
     private String backgroundColor;
 
-    public DataSet(final List<Integer> data, final StateEnum stateEnum) {
+    public DataSet(final List<Double> data, final StateEnum stateEnum) {
         this.data = data;
         this.label = stateEnum.getStateName();
         this.backgroundColor = stateEnum.getRgba();

@@ -32,9 +32,9 @@ public class CovidData {
     StateEntity stateEntity;
 
     private int casos;
-    private int hospitalizados;
-    private int uCI;
     private int fallecidos;
+    private int uCI;
+    private int hospitalizados;
     private int recuperados;
 
 

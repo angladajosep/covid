@@ -2,6 +2,8 @@ $(function () {
         var chartjs_cases;
         var chartjs_deaths;
         var chartjs_uci;
+        var chartjs_hospital;
+        var chartjs_recovered;
 
         $('#states').select2({
             ajax: {
@@ -26,6 +28,13 @@ $(function () {
             if (chartjs_uci != undefined) {
                 chartjs_uci.destroy();
             }
+            if (chartjs_hospital != undefined) {
+                chartjs_hospital.destroy();
+            }
+            if (chartjs_recovered != undefined) {
+                chartjs_recovered.destroy();
+            }
+
             getChartData();
 
             function renderCaseChart(datasets, labels) {
@@ -85,6 +94,45 @@ $(function () {
                     }
                 });
             }
+            function renderHospitalChart(datasets, labels) {
+                var ctx = document.getElementById("chartjs_hospital").getContext('2d');
+                chartjs_hospital = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+            function renderRecoveredChart(datasets, labels) {
+                var ctx = document.getElementById("chartjs_recovered").getContext('2d');
+                chartjs_recovered = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+
 
             function getChartData() {
                 $.ajax({
@@ -102,7 +150,6 @@ $(function () {
                         $("#loadingMessage").html("Error");
                     }
                 });
-
                 $.ajax({
                     url: "http://localhost:8080/api/covid/data/death",
                     type: "get",
@@ -128,6 +175,36 @@ $(function () {
                         var datasets = result.datasets;
                         var labels = result.labels;
                         renderUciChart(datasets, labels);
+                    },
+                    error: function (err) {
+                        $("#loadingMessage").html("Error");
+                    }
+                });
+                $.ajax({
+                    url: "http://localhost:8080/api/covid/data/hostpital",
+                    type: "get",
+                    data: {states: $('#states').val()},
+                    traditional: true,
+                    success: function (result) {
+                        $("#loadingMessage").html("");
+                        var datasets = result.datasets;
+                        var labels = result.labels;
+                        renderHospitalChart(datasets, labels);
+                    },
+                    error: function (err) {
+                        $("#loadingMessage").html("Error");
+                    }
+                });
+                $.ajax({
+                    url: "http://localhost:8080/api/covid/data/recovered",
+                    type: "get",
+                    data: {states: $('#states').val()},
+                    traditional: true,
+                    success: function (result) {
+                        $("#loadingMessage").html("");
+                        var datasets = result.datasets;
+                        var labels = result.labels;
+                        renderRecoveredChart(datasets, labels);
                     },
                     error: function (err) {
                         $("#loadingMessage").html("Error");

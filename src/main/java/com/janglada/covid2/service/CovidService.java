@@ -40,6 +40,8 @@ public class CovidService {
     public static final ToIntFunction<CovidData> CASE_VALUE = CovidData::getCasos;
     public static final ToIntFunction<CovidData> DEATH_VALUE = CovidData::getFallecidos;
     public static final ToIntFunction<CovidData> UCI_VALUE = CovidData::getUCI;
+    public static final ToIntFunction<CovidData> HOSPITAL_VALUE = CovidData::getHospitalizados;
+    public static final ToIntFunction<CovidData> RECOVERED_VALUE = CovidData::getRecuperados;
 
 
     public CovidService(final ConsumerSanidadService consumerSanidadService, final CovidDataRepository covidDataRepository,
@@ -64,14 +66,21 @@ public class CovidService {
         DataApi dataApi = new DataApi();
         dataApi.setLabels(dateEntityList.stream().map(x-> x.getDate().toString()).collect(Collectors.toList()));
 
-        Map<String, List<Integer>> statesReport = new HashMap<>();
+        Map<String, List<Double>> statesReport = new HashMap<>();
         for (DateEntity dateEntity : dateEntityList) {
             for (CovidData covidData : dateEntity.getCovidData()) {
 
                 String stateId = covidData.getStateEntity().getStateName();
+                
                 if (statesId.contains(stateId)) {
-                    List<Integer> integers = statesReport.computeIfAbsent(stateId, k -> new ArrayList<>());
-                    integers.add(index.applyAsInt(covidData));
+                    List<Double> integers = statesReport.computeIfAbsent(stateId, k -> new ArrayList<>());
+
+                    double result = 0d;
+                    int covidValue = index.applyAsInt(covidData);
+                    if (covidValue != 0) {
+                        result = (double)(covidValue * (100)) / valueOf(stateId).getPopulation();
+                    }
+                    integers.add(result);
                     statesReport.put(stateId, integers);
                 }
             }
