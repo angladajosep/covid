@@ -19,8 +19,6 @@ public abstract class Graph {
 
     public abstract List<Double> calculate(List<Double> covidValues,final int covidValue, final String stateId) ;
 
-
-
     protected double calculatevalue(int covidValue, String stateId, boolean population) {
         double result = 0d;
 
