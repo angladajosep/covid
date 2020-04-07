@@ -1,6 +1,6 @@
 package com.janglada.covid2.startup;
 
-import com.janglada.covid2.service.ChargeDataService;
+import com.janglada.covid2.service.charge.ChargeDataService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;

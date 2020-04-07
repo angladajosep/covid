@@ -43,8 +43,7 @@ public class CovidController {
     @GetMapping("/data/caseCumulative")
     public ResponseEntity<DataApi> getCovidCumulativeCaseValuesApi(@RequestParam(name = "states") List<String> statesId,            
                                                                    @RequestParam(name = "population") boolean population) {
-        log.info("getCovidCumulativeCaseValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidCumulativeCaseValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.CASE_VALUE, statesId, Boolean.TRUE, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -52,8 +51,7 @@ public class CovidController {
     @GetMapping("/data/case")
     public ResponseEntity<DataApi> getCovidCaseValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                          @RequestParam(name = "population") boolean population) {
-        log.info("getCovidCaseValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidCaseValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.CASE_VALUE, statesId, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -62,8 +60,7 @@ public class CovidController {
     @GetMapping("/data/deathCumulative")
     public ResponseEntity<DataApi> getCovidDeathCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                     @RequestParam(name = "population") boolean population) {
-        log.info("getCovidDeathCumulativeValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidDeathCumulativeValuesApi- {}", statesId);
 
         DataApi dataApi = covidService.getApiValues(CovidService.DEATH_VALUE, statesId, Boolean.TRUE, population);
 
@@ -73,8 +70,7 @@ public class CovidController {
     @GetMapping("/data/death")
     public ResponseEntity<DataApi> getCovidDeathValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                           @RequestParam(name = "population") boolean population) {
-        log.info("getCovidDeathValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidDeathValuesApi- {}", statesId);
 
         DataApi dataApi = covidService.getApiValues(CovidService.DEATH_VALUE, statesId, population);
 
@@ -85,8 +81,7 @@ public class CovidController {
     @GetMapping("/data/uciCumulative")
     public ResponseEntity<DataApi> getCovidUciCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                   @RequestParam(name = "population") boolean population) {
-        log.info("getCovidUciCumulativeValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidUciCumulativeValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE, statesId, Boolean.TRUE, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -94,8 +89,7 @@ public class CovidController {
     @GetMapping("/data/uci")
     public ResponseEntity<DataApi> getCovidUciValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                         @RequestParam(name = "population") boolean population) {
-        log.info("getCovidUciValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidUciValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE, statesId, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -103,8 +97,7 @@ public class CovidController {
     @GetMapping("/data/hospital")
     public ResponseEntity<DataApi> getCovidHospitalValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                              @RequestParam(name = "population") boolean population) {
-        log.info("getCovidHospitalValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidHospitalValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.HOSPITAL_VALUE, statesId, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -112,8 +105,7 @@ public class CovidController {
     @GetMapping("/data/hospitalCumulative")
     public ResponseEntity<DataApi> getCovidHospitalCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                        @RequestParam(name = "population") boolean population) {
-        log.info("getCovidHospitalCumulativeValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidHospitalCumulativeValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.HOSPITAL_VALUE, statesId, Boolean.TRUE, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -121,8 +113,7 @@ public class CovidController {
     @GetMapping("/data/recoveredCumulative")
     public ResponseEntity<DataApi> getCovidRecoveredCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                         @RequestParam(name = "population") boolean population) {
-        log.info("getCovidRecoveredCumulativeValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidRecoveredCumulativeValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.RECOVERED_VALUE, statesId, Boolean.TRUE, population);
         return ResponseEntity.ok(dataApi);
     }
@@ -130,8 +121,7 @@ public class CovidController {
     @GetMapping("/data/recovered")
     public ResponseEntity<DataApi> getCovidRecoveredValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                               @RequestParam(name = "population") boolean population) {
-        log.info("getCovidRecoveredValuesApi");
-        log.info(statesId.toString());
+        log.info("getCovidRecoveredValuesApi- {}", statesId);
         DataApi dataApi = covidService.getApiValues(CovidService.RECOVERED_VALUE, statesId, population);
         return ResponseEntity.ok(dataApi);
     }

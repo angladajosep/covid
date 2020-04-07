@@ -1,4 +1,4 @@
-package com.janglada.covid2.service;
+package com.janglada.covid2.service.consumer;
 
 import com.janglada.covid2.service.exception.MyException;
 import org.apache.commons.io.FileUtils;

@@ -1,7 +1,11 @@
-package com.janglada.covid2.service;
+package com.janglada.covid2.service.charge;
 
 import com.janglada.covid2.model.CovidData;
+import com.janglada.covid2.model.StateEnum;
 import com.janglada.covid2.repository.CovidDataRepository;
+import com.janglada.covid2.service.DateService;
+import com.janglada.covid2.service.StateService;
+import com.janglada.covid2.service.consumer.ConsumerSanidadService;
 import com.janglada.covid2.service.exception.MyException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.csv.CSVFormat;
@@ -51,11 +55,10 @@ public class ChargeDataService {
             String report = FileUtils.readFileToString(csvFile, UTF_8);
             Reader in = new StringReader(report);
             Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(in);
-
             CovidData covidData;
             int row = 1;
             for (CSVRecord record : records) {
-                if (row != 1) {
+                if ((row != 1) && (null != StateEnum.valueOf(record.get(0)))) {
                     covidData = new CovidData();
                     covidData.setStateEntity(stateService.saveState(record.get(0)));
                     covidData.setDateEntity(dateService.saveDate(record.get(1)));
@@ -64,7 +67,6 @@ public class ChargeDataService {
                     covidData.setUciCumulative(getIntValue(record, 4));
                     covidData.setDeathCumulative(getIntValue(record, 5));
                     covidData.setRecoveredCumulative(getIntValue(record, 6));
-
                     covidDataRepository.save(covidData);
                 }
                 row++;
