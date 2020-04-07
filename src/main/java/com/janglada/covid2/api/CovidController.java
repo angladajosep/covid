@@ -4,6 +4,8 @@ import com.janglada.covid2.model.StateEnum;
 import com.janglada.covid2.model.api.ComboApi;
 import com.janglada.covid2.model.api.DataApi;
 import com.janglada.covid2.service.CovidService;
+import com.janglada.covid2.service.graphics.GraphCumulative;
+import com.janglada.covid2.service.graphics.GraphNoCumulative;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,7 +46,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidCumulativeCaseValuesApi(@RequestParam(name = "states") List<String> statesId,            
                                                                    @RequestParam(name = "population") boolean population) {
         log.info("getCovidCumulativeCaseValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.CASE_VALUE, statesId, Boolean.TRUE, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.CASE_VALUE, statesId, new GraphCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -52,7 +54,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidCaseValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                          @RequestParam(name = "population") boolean population) {
         log.info("getCovidCaseValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.CASE_VALUE, statesId, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.CASE_VALUE, statesId, new GraphNoCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -62,7 +64,7 @@ public class CovidController {
                                                                     @RequestParam(name = "population") boolean population) {
         log.info("getCovidDeathCumulativeValuesApi- {}", statesId);
 
-        DataApi dataApi = covidService.getApiValues(CovidService.DEATH_VALUE, statesId, Boolean.TRUE, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.DEATH_VALUE, statesId, new GraphCumulative(population));
 
         return ResponseEntity.ok(dataApi);
     }
@@ -72,7 +74,7 @@ public class CovidController {
                                                           @RequestParam(name = "population") boolean population) {
         log.info("getCovidDeathValuesApi- {}", statesId);
 
-        DataApi dataApi = covidService.getApiValues(CovidService.DEATH_VALUE, statesId, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.DEATH_VALUE,statesId, new GraphNoCumulative(population));
 
         return ResponseEntity.ok(dataApi);
     }
@@ -82,7 +84,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidUciCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                   @RequestParam(name = "population") boolean population) {
         log.info("getCovidUciCumulativeValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE, statesId, Boolean.TRUE, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE, statesId, new GraphCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -90,7 +92,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidUciValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                         @RequestParam(name = "population") boolean population) {
         log.info("getCovidUciValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE, statesId, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.UCI_VALUE,statesId, new GraphNoCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -98,7 +100,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidHospitalValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                              @RequestParam(name = "population") boolean population) {
         log.info("getCovidHospitalValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.HOSPITAL_VALUE, statesId, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.HOSPITAL_VALUE,statesId, new GraphNoCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -106,7 +108,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidHospitalCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                        @RequestParam(name = "population") boolean population) {
         log.info("getCovidHospitalCumulativeValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.HOSPITAL_VALUE, statesId, Boolean.TRUE, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.HOSPITAL_VALUE, statesId, new GraphCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -114,7 +116,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidRecoveredCumulativeValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                                         @RequestParam(name = "population") boolean population) {
         log.info("getCovidRecoveredCumulativeValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.RECOVERED_VALUE, statesId, Boolean.TRUE, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.RECOVERED_VALUE, statesId, new GraphCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
@@ -122,7 +124,7 @@ public class CovidController {
     public ResponseEntity<DataApi> getCovidRecoveredValuesApi(@RequestParam(name = "states") List<String> statesId,
                                                               @RequestParam(name = "population") boolean population) {
         log.info("getCovidRecoveredValuesApi- {}", statesId);
-        DataApi dataApi = covidService.getApiValues(CovidService.RECOVERED_VALUE, statesId, population);
+        DataApi dataApi = covidService.getApiValues(CovidService.RECOVERED_VALUE,statesId, new GraphNoCumulative(population));
         return ResponseEntity.ok(dataApi);
     }
 
