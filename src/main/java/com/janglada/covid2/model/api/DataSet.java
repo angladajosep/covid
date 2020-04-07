@@ -13,11 +13,11 @@ public class DataSet implements Serializable {
 
     private List<Double> data;
     private String label;
-    private String borderColor;
+    private String backgroundColor;
 
     public DataSet(final List<Double> data, final StateEnum stateEnum) {
         this.data = data;
         this.label = stateEnum.getStateName();
-        this.borderColor = stateEnum.getRgba();
+        this.backgroundColor = stateEnum.getRgba();
     }
 }

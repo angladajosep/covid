@@ -1,3 +1,14 @@
+let options = {
+    scales: {
+        yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
+};
+
+
 $(function () {
         var chartjs_cases;
         var chartjs_deaths;
@@ -43,21 +54,14 @@ $(function () {
 
             function renderCaseChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_cases").getContext('2d');
+
                 chartjs_cases = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
@@ -69,15 +73,8 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
+
                 });
             }
 
@@ -89,15 +86,7 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
@@ -109,15 +98,7 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
@@ -129,15 +110,7 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
@@ -272,15 +245,8 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
+
                 });
             }
 
@@ -292,15 +258,7 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
@@ -312,15 +270,7 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
@@ -332,15 +282,7 @@ $(function () {
                         labels: labels,
                         datasets: datasets
                     },
-                    options: {
-                        scales: {
-                            yAxes: [{
-                                ticks: {
-                                    beginAtZero: true
-                                }
-                            }]
-                        }
-                    }
+                    options: options
                 });
             }
 
