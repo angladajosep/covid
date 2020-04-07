@@ -44,7 +44,7 @@ $(function () {
             function renderCaseChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_cases").getContext('2d');
                 chartjs_cases = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -64,7 +64,7 @@ $(function () {
             function renderDeathChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_deaths").getContext('2d');
                 chartjs_deaths = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -84,7 +84,7 @@ $(function () {
             function renderUciChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_uci").getContext('2d');
                 chartjs_uci = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -104,7 +104,7 @@ $(function () {
             function renderHospitalChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_hospital").getContext('2d');
                 chartjs_hospital = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -124,7 +124,7 @@ $(function () {
             function renderRecoveredChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_recovered").getContext('2d');
                 chartjs_recovered = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -267,7 +267,7 @@ $(function () {
             function renderCaseChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_cases").getContext('2d');
                 chartjs_cases = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -287,7 +287,7 @@ $(function () {
             function renderDeathChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_deaths").getContext('2d');
                 chartjs_deaths = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -307,7 +307,7 @@ $(function () {
             function renderUciChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_uci").getContext('2d');
                 chartjs_uci = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -327,7 +327,7 @@ $(function () {
             function renderHospitalChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_hospital").getContext('2d');
                 chartjs_hospital = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
@@ -347,7 +347,7 @@ $(function () {
             function renderRecoveredChart(datasets, labels) {
                 var ctx = document.getElementById("chartjs_recovered").getContext('2d');
                 chartjs_recovered = new Chart(ctx, {
-                    type: 'bar',
+                    type: 'line',
                     data: {
                         labels: labels,
                         datasets: datasets
