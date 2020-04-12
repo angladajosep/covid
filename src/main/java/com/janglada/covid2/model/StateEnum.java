@@ -16,7 +16,7 @@ public enum StateEnum {
     EX("EX", "EXTREMADURA", 1065371, "rgba(192,192,192, 1.0)"),
     GA("GA", "GALICA", 2700330, "rgba(255,0,0, 1.0)"),
     MD("MD", "MADRID", 6640705, "rgba(255,0,255, 1.0)"),
-    ME("ME", "MELILLA", 84714, "rgba(255,255,0, 1.0)"),
+    ML("ML", "MELILLA", 84714, "rgba(255,255,0, 1.0)"),
     MC("MC", "MURCIA", 1487698, "rgba(0,0,0, 0.5)"),
     NC("NC", "NAVARRA", 653846, "rgba(0,0,128, 0.5)"),
     PV("PV", "PAIS_VASCO", 2178048, "rgba(0,0,255, 0.5)"),
