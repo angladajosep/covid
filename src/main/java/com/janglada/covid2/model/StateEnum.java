@@ -2,6 +2,7 @@ package com.janglada.covid2.model;
 
 public enum StateEnum {
 
+    ALL("ALL", "ALL", 47007367, "rgba(0,0,0, 1.0)"),
     AN("AN", "ANDALUCIA", 8426405, "rgba(0,0,0, 1.0)"),
     AR("AR", "ARAGON", 1320794, "rgba(0,0,128, 1.0)"),
     AS("AS", "ASTURIAS", 1022293, "rgba(0,0,255, 1.0)"),

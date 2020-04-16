@@ -2,8 +2,6 @@ package com.janglada.covid2.service.graphics;
 
 import java.util.List;
 
-import static com.janglada.covid2.model.StateEnum.valueOf;
-
 public class GraphCumulative extends Graph {
 
     public GraphCumulative(final boolean population) {
